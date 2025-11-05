@@ -1,0 +1,72 @@
+# -------------------------------------------------------------------
+# 🔑 Security and Google Cloud (CRITICAL to Ignore!)
+# -------------------------------------------------------------------
+# Never commit service account keys, environment variables, or other secrets.
+*.json
+*.pem
+*.p12
+.env
+service_account_key.json
+credentials.yaml
+
+# -------------------------------------------------------------------
+# 🐍 Python / Vertex AI (ML/Data Science) Artifacts
+# -------------------------------------------------------------------
+__pycache__/
+*.pyc
+*.egg-info
+# Trained models (must be in GCS/Vertex AI Model Registry, not Git)
+model.h5
+model.pkl
+model_artifacts/
+/ai_model/trained_models/
+/ai_model/tensorboard_logs/
+notebook_exports/ # Temporary files from development notebooks
+# Dependency management files
+poetry.lock
+Pipfile.lock
+
+# -------------------------------------------------------------------
+# 🌐 Node.js / Express (Backend/API)
+# -------------------------------------------------------------------
+# Node modules directory
+node_modules/
+# Dependency management lock files (often ignored, but can be helpful for consistency)
+package-lock.json
+npm-debug.log
+
+# -------------------------------------------------------------------
+# ⚛️ React (Frontend)
+# -------------------------------------------------------------------
+# Build output
+/build
+/dist
+/out
+# Local React development log
+npm-debug.log*
+
+# -------------------------------------------------------------------
+# 📊 Data and BigQuery Local Files
+# -------------------------------------------------------------------
+# Local copies of huge data exports (should live in BigQuery/GCS)
+*.csv
+*.parquet
+*.hdf5
+temp_query_results/
+/data_pipeline/raw_data/
+/data_pipeline/exports/
+
+# -------------------------------------------------------------------
+# 🗃️ MongoDB (Local/Cache Files)
+# -------------------------------------------------------------------
+data/db/ # Local MongoDB data files if running locally
+mongod.log
+
+# -------------------------------------------------------------------
+# 💻 Operating System / Development Tools
+# -------------------------------------------------------------------
+.DS_Store
+.vscode/
+.idea/
+logs/
+*.log
