@@ -1,0 +1,20 @@
+/* client/src/index.css (Corrected) */
+
+/* Set a default font family and box-sizing model */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  
+  /* This is the light grey background for the *entire* page, 
+    which will match the dashboard's background. 
+  */
+  background-color: #f4f7fa; 
+}
+
+/* This ensures that padding and borders don't 
+  add to the element's width or height.
+*/
+* {
+  box-sizing: border-box;
+}

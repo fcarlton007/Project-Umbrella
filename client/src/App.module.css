@@ -1,0 +1,261 @@
+/* client/src/App.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* --- Top Navigation Bar --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  padding: 18px 32px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', sans-serif;
+}
+
+.brand {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+.navLinks a {
+  color: #c0c8d0;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navLinks a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.navLinks a.active { 
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* --- Main Page Layout --- */
+.dashboardContainer {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  gap: 24px; 
+  background-color: #f4f7fa; 
+  padding: 24px;
+  min-height: calc(100vh - 88px);
+  font-family: 'Inter', sans-serif;
+}
+
+.controlPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* --- Reusable Card Component --- */
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 24px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+  margin-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  font-size: 1.25rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* --- Form Styles --- */
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px; 
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 12px; 
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; 
+  font-family: 'Inter', sans-serif; 
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  border-color: #0f2027; 
+  box-shadow: 0 0 0 3px rgba(44, 83, 100, 0.1); 
+  outline: none; 
+}
+
+.submitButton {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #0f2027; 
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.2s ease; 
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #2c5364; 
+}
+
+.submitButton:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+/* --- Results Styles --- */
+.loadingText {
+  font-style: italic;
+  color: #555;
+  text-align: center;
+  padding: 40px;
+}
+
+.errorText {
+  color: #D8000C;
+  background-color: #FFD2D2;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.signal {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+
+.signalLong {
+  color: #28a745; /* Green */
+}
+
+.signalShort {
+  color: #dc3545; /* Red */
+}
+
+.rationale {
+  font-style: italic;
+  color: #555;
+  background-color: #fcfcfc;
+  border-left: 4px solid #2c5364; 
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* --- Info List Styles --- */
+.dataList {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.dataListItem {
+  background-color: #f9f9f9;
+  padding: 8px 12px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  position: relative; /* Keep this for safety */
+}
+
+.symbolList {
+  max-height: 200px; 
+  overflow-y: auto;
+  border: 1px solid #eee;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.clickableSymbol {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.clickableSymbol:hover {
+  background-color: #e9ecef;
+}
+
+/* --- NEW JAVASCRIPT-CONTROLLED TOOLTIP --- */
+.tooltip {
+  /* position: fixed ensures it floats over everything, 
+     including the overflow:auto parent */
+  position: fixed; 
+  background: #333; 
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  white-space: nowrap; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  
+  /* These will be set by JS, but 'translateY' helps center it */
+  transform: translateY(-50%); 
+  z-index: 1000; /* Max z-index */
+  
+  /* We use pointer-events none so the mouse can leave */
+  pointer-events: none; 
+  
+  /* Fade in/out */
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+/* Speech bubble arrow pointing left */
+.tooltip::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* At the left edge of the bubble */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #333 transparent transparent; 
+}
